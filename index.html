@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>
+            Урожай
+        </title>
+        <meta charset="UTF-8">
+        <script src="https://kit.fontawesome.com/f2f561f988.js" crossorigin="anonymous"></script>
+        <style>
+            body {
+                margin: 0px;
+                padding: 0px;
+                text-align: center;
+            }
+            .wrap1 {
+                
+                width: 1300px;
+                min-width: 1300px;
+                padding: 10px;
+                height: 430px;
+                margin: auto;
+                margin-top: 10%;
+                display: block;
+                text-align: center;
+                overflow: hidden;
+            }
+            .wrap2 {
+                width: 1300px;
+                min-width: 1300px;
+                padding: 10px;
+                height: 430px;
+                margin: auto;
+                margin-top: 10%;
+                display: block;
+                text-align: center;
+                overflow: hidden;
+            }
+            .wrap3 {
+                width: 1300px;
+                min-width: 1300px;
+                padding: 10px;
+                height: 430px;
+                margin: auto;
+                margin-top: 10%;
+                display: block;
+                text-align: center;
+                overflow: hidden;
+            }
+
+            #slide2:checked ~ .wrap2 {
+                display: block;
+                animation-name: app2;
+                animation-duration: 2s;
+            }
+            @keyframes app2 {
+                0% {
+                    opacity: 0%;
+                }
+                100% {
+                    opacity: 100%;
+                }
+            }
+            #slide2:checked ~ .wrap1 {
+                display: none;
+            }
+            #slide2:checked ~ .wrap3 {
+                display: none;
+            }
+
+            #slide1:checked ~ .wrap1 {
+                display: block;
+                animation-name: app2;
+                animation-duration: 2s;
+                }
+            #slide1:checked ~ .wrap2 {
+                display: none;
+            }
+            #slide1:checked ~ .wrap3 {
+                display: none;
+            }
+            #slide3:checked ~ .wrap3 {
+                display: block;
+                animation-name: app2;
+                animation-duration: 2s;
+            }
+            #slide3:checked ~ .wrap1 {
+                display: none;
+            }
+            #slide3:checked ~ .wrap2 {
+                display: none;
+            }
+
+
+
+            .little {
+                width:280px;
+                margin: 10px;
+                margin-bottom: 0px;
+                cursor: pointer;
+            } 
+            article {
+                font-size: 12px;
+                font-family: Arial, Helvetica, sans-serif;
+                margin: 10px;
+                margin-top: 0px;
+                opacity: 0;
+                box-sizing:border-box;
+            }
+            article:hover {
+                margin: 10px;
+                margin-top: 0;
+                opacity: 1;
+            }
+
+            .item:hover  article {
+                margin: 10px;
+                margin-top: 0;
+                opacity: 1;
+                
+            }  
+            .item:hover {
+                height: 360px;
+                box-shadow: 3px 3px 5px 5px #ccc;
+            }
+                 
+            .radioitem {
+               position: absolute;
+               visibility: hidden;
+               
+            }
+
+           .slider {
+               position: absolute;
+               visibility: hidden;
+               
+           }
+           .close{
+            
+               visibility: hidden;
+           }
+           .close_lbl{
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            opacity: 0;
+            
+           }
+
+           .radioitem:checked ~ .close_lbl {
+               opacity: 1;
+               z-index: 100;
+           }
+          .big {
+
+               display: none;
+               position: fixed;
+
+
+           }
+           .radioitem:checked ~ .big {
+
+               background-color: rgba(200, 200, 200, .7);
+               display: block;
+               padding: 60%;
+               max-height: 80%;
+               max-width: 60%;
+               position: fixed;
+               box-sizing:content-box;
+               left: 50%;
+               top:50%;
+               z-index: 99; 
+               transform: translateX(-50%) translateY(-50%);
+           }         
+
+           .left {
+               float: left;
+           }
+           .right {
+               float: right;
+           }
+          
+           .slider_radio1::before {
+                content: "";
+                display: inline-block;
+                width: 18px;
+                height: 18px;
+                margin-right: 10px;
+                bottom: 1px;
+                background-color: white;
+                border-radius: 11px;
+                border-color: grey;
+                border-style: solid;
+                border-width: 2px;
+
+           }
+           .slider_radio2::before {
+                content: "";
+                display: inline-block;
+                width: 18px;
+                height: 18px;
+                margin-right: 10px;
+                bottom: 1px;
+                background-color: white;
+                border-radius: 11px;
+                border-color: grey;
+                border-style: solid;
+                border-width: 2px;
+           }
+
+           .slider_radio3::before {
+                content: "";
+                display: inline-block;
+                width: 18px;
+                height: 18px;
+                margin-right: 10px;
+                
+                bottom: 1px;
+                background-color: white;
+                border-radius: 11px;
+                border-color: grey;
+                border-style: solid;
+                border-width: 2px;           }
+                .item {
+                width: 300px;
+                box-sizing:border-box;
+                height: 340px;
+                display: table-cell;
+                margin: 10px;
+                padding: 2px;
+            }
+            #slide1:checked ~ .slider_radio1::before {
+                content: "\2022";
+                color:dodgerblue;
+                font-size: 32px;
+                text-align: center;
+                line-height: 18px;
+           }
+
+           #slide2:checked ~ .slider_radio2::before {
+                content: "\2022";
+                color:dodgerblue;
+                font-size: 32px;
+                text-align: center;
+                line-height: 18px;
+           }
+
+           #slide3:checked ~ .slider_radio3::before {
+                content: "\2022";
+                color:dodgerblue;
+                font-size: 32px;
+                text-align: center;
+                line-height: 18px;
+           }
+
+        </style>
+    </head>
+    <body>
+    <input type="radio" id="slide1" class="slider" name="slider" checked="checked">
+   <input type="radio" id="slide2" class="slider" name="slider">
+   <input type="radio" id="slide3" class="slider" name="slider">
+  
+   
+   
+   <div class="left"></div>
+   <div class="right"></div>
+        <ul class="wrap1">
+            <li class="item">
+                <input type="radio"  id="item01" class="radioitem" name="item01"><label for="item01"><img class="little" src="img/01-морковь.jpg" alt="" ></label>
+                <input type="radio"  id="close01" class="close" name="item01" checked="checked"><label for="close01" class="close_lbl"><i class="fas fa-times fa-2x"></i></label>
+                <article>
+                    Корни и плоды дикой и культурной моркови могут быть использованы как пряность. Плоды, обладающие жгучим пряным вкусом, употребляют как приправу к кушаньям, используют в маринадах, ликёро-наливочном производстве. Испытаны и одобрены в качестве пряности при обработке рыбы. Плоды могут найти применение в консервной промышленности.
+                </article>
+                 <img class="big" src="img/01-морковь.jpg" alt="" >
+            </li>
+            
+            
+            
+            <li class="item">
+
+                <input type="radio"  id="item02" class="radioitem" name="item02"><label for="item02"><img class="little" src="img/02-баклажан.jpg" alt="" ></label>
+                <input type="radio"  id="close02" class="close" name="item02"><label for="close02" class="close_lbl"><i class="fas fa-times fa-2x"></i></label>
+                <article>
+                    Баклажаны активно используются в кулинарии многих стран мира. Их варят, жарят, запекают, тушат, готовят на гриле, маринуют, используют для приготовления баклажанных салатов и икры, а также едят сырыми[6]. Многие новые сорта не требуют вымачивания, поскольку лишены горечи изначально.
+                </article>
+                <img class="big" src="img/02-баклажан.jpg" alt="" >
+            </li>
+            
+            <li class="item">
+
+                <input type="radio"  id="item03" class="radioitem" name="item03"><label for="item03"><img class="little" src="img/03-томат.jpg" alt="" ></label>
+                <input type="radio"  id="close03" class="close" name="item03"><label for="close03" class="close_lbl"><i class="fas fa-times fa-2x"></i></label>
+                <article>
+                    Томат сегодня — одна из самых популярных культур благодаря своим ценным питательным и диетическим качествам, большому разнообразию сортов, высокой отзывчивости на применяемые приёмы выращивания. Его возделывают в открытом грунте, под плёночными укрытиями, в теплицах, парниках, на балконах, лоджиях и даже в комнатах на подоконниках.
+                </article>
+                <img class="big" src="img/03-томат.jpg" alt="" >
+            </li>
+
+            <li class="item">
+
+                <input type="radio"  id="item04" class="radioitem" name="item04"><label for="item04"><img class="little" src="img/04-кабачок.jpg" alt="" ></label>
+                <input type="radio"  id="close04" class="close" name="item04"><label for="close04" class="close_lbl"><i class="fas fa-times fa-2x"></i></label>
+                <article>
+                    Молодые кабачки имеют наилучшие вкусовые качества и легко усваиваются. Кабачки можно добавлять в детское меню, в рацион питания больных, идущих на поправку, а также людей, страдающих от проблем с пищеварением.
+                </article>
+                <img class="big" src="img/04-кабачок.jpg" alt="" >
+            </li>
+            
+        </ul> 
+       
+       
+       <ul class="wrap2">
+
+        <li class="item">
+
+            <input type="radio"  id="item05" class="radioitem" name="item05"><label for="item05"><img class="little" src="img/04-кабачок.jpg" alt="" ></label>
+            <input type="radio"  id="close05" class="close" name="item05"><label for="close05" class="close_lbl"><i class="fas fa-times fa-2x"></i></label>
+            <article>
+                Молодые кабачки имеют наилучшие вкусовые качества и легко усваиваются. Кабачки можно добавлять в детское меню, в рацион питания больных, идущих на поправку, а также людей, страдающих от проблем с пищеварением.
+            </article>
+            <img class="big" src="img/04-кабачок.jpg" alt="" >
+        </li>
+
+
+        <li class="item">
+            <input type="radio"  id="item06" class="radioitem" name="item06"><label for="item06"><img class="little" src="img/05-огурец.jpg" alt="" ></label>
+            <input type="radio"  id="close06" class="close" name="item06" checked="checked"><label for="close06" class="close_lbl"><i class="fas fa-times fa-2x"></i></label>
+            <article>
+                Плоды растения — огурцы пригодны для пищи в сыром виде, также широко используются в кулинарии в качестве ингредиентов разнообразных блюд, в том числе используются для консервирования различными способами, в том числе повсеместно известны малосольные огурцы, маринованные и солёные огурцы.
+            </article>
+             <img class="big" src="img/05-огурец.jpg" alt="" >
+        </li>
+        
+        
+        
+        <li class="item">
+
+            <input type="radio"  id="item07" class="radioitem" name="item07"><label for="item07"><img class="little" src="img/06-картофель.jpg" alt="" ></label>
+            <input type="radio"  id="close07" class="close" name="item07"><label for="close07" class="close_lbl"><i class="fas fa-times fa-2x"></i></label>
+            <article>
+                Картофель варят как очищенным, так и неочищенным («в мундире»), что позволяет сохранить максимум полезных веществ. Его также готовят на углях или на пару, тушат, жарят во фритюре (см. картофель фри) и без него (см. жареный картофель). Картофель используется как в простых, так и в изысканных блюдах.
+            </article>
+            <img class="big" src="img/06-картофель.jpg" alt="" >
+        </li>
+        
+        <li class="item">
+
+            <input type="radio"  id="item08" class="radioitem" name="item08"><label for="item08"><img class="little" src="img/07-салат.jpg" alt="" ></label>
+            <input type="radio"  id="close08" class="close" name="item08"><label for="close08" class="close_lbl"><i class="fas fa-times fa-2x"></i></label>
+            <article>
+                Овощная культура. В основном используется как витаминная зелень. В пищу используют листья, кочан, утолщённый стебель. Листья и кочаны съедобны в свежем виде до образования растением стебля, потом они становятся горьковатыми.
+            </article>
+            <img class="big" src="img/07-салат.jpg" alt="" >
+        </li>
+
+
+    </ul>   
+
+
+
+
+
+   
+   <ul class="wrap3">
+    <li class="item">
+
+        <input type="radio"  id="item09" class="radioitem" name="item09"><label for="item09"><img class="little" src="img/07-салат.jpg" alt="" ></label>
+        <input type="radio"  id="close09" class="close" name="item09"><label for="close09" class="close_lbl"><i class="fas fa-times fa-2x"></i></label>
+        <article>
+            Баклажаны активно используются в кулинарии многих стран мира. Их варят, жарят, запекают, тушат, готовят на гриле, маринуют, используют для приготовления баклажанных салатов и икры, а также едят сырыми. Многие новые сорта не требуют вымачивания, поскольку лишены горечи изначально.
+        </article>
+        <img class="big" src="img/07-салат.jpg" alt="" >
+    </li>
+
+
+    <li class="item">
+        <input type="radio"  id="item10" class="radioitem" name="item10"><label for="item10"><img class="little" src="img/08-лук.jpg" alt="" ></label>
+        <input type="radio"  id="close10" class="close" name="item10" checked="checked"><label for="close10" class="close_lbl"><i class="fas fa-times fa-2x"></i></label>
+        <article>
+            Репчатый лук — одна из важнейших овощных культур. Луковицы и листья используются как приправа в консервной промышленности, к салатам, винегретам, грибам, овощным и мясным блюдам, а также как пряно-витаминная закуска и вкусовая добавка к супам, соусам, подливкам, фаршам.
+        </article>
+         <img class="big" src="img/08-лук.jpg" alt="" >
+    </li>
+    
+    
+    
+    <li class="item">
+
+        <input type="radio"  id="item11" class="radioitem" name="item11"><label for="item11"><img class="little" src="img/09-тыква.jpg" alt="" ></label>
+        <input type="radio"  id="close11" class="close" name="item11"><label for="close11" class="close_lbl"><i class="fas fa-times fa-2x"></i></label>
+        <article>
+            В отличие от декоративных, съедобные сорта тыквы употребляются в пищу. После тепловой обработки варёная или печёная тыква очень хорошо усваивается организмом и широко применяется даже для детского и диетического питания. Также хорошо используется для салатов и гарниров.
+        </article>
+        <img class="big" src="img/09-тыква.jpg" alt="" >
+    </li>
+    
+    <li class="item">
+
+        <input type="radio"  id="item12" class="radioitem" name="item12"><label for="item12"><img class="little" src="img/10-чеснок.jpg" alt="" ></label>
+        <input type="radio"  id="close12" class="close" name="item12"><label for="close12" class="close_lbl"><i class="fas fa-times fa-2x"></i></label>
+        <article>
+            Благодаря острому вкусу чеснок широко используется во всём мире как приправа. Он является важным элементом многих блюд в различных регионах, например, в Восточной и Южной Азии, на Среднем Востоке и в Северной Африке; чеснок — непременный атрибут средиземноморской кухни.
+        </article>
+        <img class="big" src="img/10-чеснок.jpg" alt="" >
+    </li>
+
+</ul>  
+      
+<label for="slide1" class="slider_radio1"></label>
+<label for="slide2" class="slider_radio2"></label>
+<label for="slide3" class="slider_radio3"></label>
+
+
+    </body>
+</html>
